@@ -1,6 +1,6 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" >
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <section class="page"
-    <!--barre de navigation-->
+    <section class="page">
 
        <nav>
            <div class="onglets">
@@ -27,18 +26,37 @@
            </div>
 
        </nav>
-       <!--fin de la barre de navigation-->
-       <!--header-->
        <header>
             <h1>CO BAYASHI</h1>
+            
+            <section class="slider-container">
+                <div class="slider">
+                    <div class="slide active">
+                        <img src="manger/asian-shrimp-vegetables-salad.jpg" alt="Slide 1">
+                    </div>
+                    <div class="slide">
+                        <img src="manger/top-view-assortment-delicious-asian-food.jpg" alt="Slide 2">
+                    </div>
+                    <div class="slide">
+                        <img src="manger/top-view-rice-seafood-dish-with-copy-space.jpg" alt="Slide 3">
+                    </div>
+                </div>
+                
+                <button class="slider-btn prev" onclick="changeSlide(-1)">&#10094;</button>
+                <button class="slider-btn next" onclick="changeSlide(1)">&#10095;</button>
+                
+                <div class="slider-dots">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </section>
        </header>
-       <!--fin du header-->
     
              
     </section>
-    <!--pied de page-->
     <footer>
-        <h5>Sah c'est trop bon</h5>
+        <h5>CO BAYASHI - Créations Artisanales</h5>
         <div class="colonnes">
             <div class="colonne"></div>
                 <p>Mentions legales</p>
@@ -47,10 +65,10 @@
                 <p>API</p>
 
             <div class="colonne">
-                <p>plus d'inspi</p>
-                <p>toujours pas</p>
-                <p>y'a vraiment des gens qui lisent ça</p>
-                <p>d'autre truc</p>
+                <p>À propos</p>
+                <p>Notre histoire</p>
+                <p>L'équipe</p>
+                <p>Nos valeurs</p>
             </div>
             <div class="colonne">
                 <p>Recrutement</p>
@@ -60,12 +78,51 @@
                    
             </div>
             <div class="colonne">
-                <p>j'ai plus rien a mettre</p>
+                <p>Suivez-nous</p>
+                <p>Instagram</p>
+                <p>Facebook</p>
+                <p>Newsletter</p>
             </div>
           
         </div>
     </footer>
-    <!---->
+    
+    <script>
+        let slideIndex = 1;
+        showSlide(slideIndex);
+        
+        function changeSlide(n) {
+            showSlide(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+            showSlide(slideIndex = n);
+        }
+        
+        function showSlide(n) {
+            let slides = document.getElementsByClassName("slide");
+            let dots = document.getElementsByClassName("dot");
+            
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+            
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove("active");
+            }
+            
+            slides[slideIndex - 1].classList.add("active");
+            dots[slideIndex - 1].classList.add("active");
+        }
+        
+        // Auto slide
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+    </script>
    
 </body>
 </html>
