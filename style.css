@@ -89,15 +89,16 @@ nav .buttons .logins:hover{
 nav .buttons .register{
     margin-right: 0.75em;
     color: white!important;
-    background: linear-gradient(135deg, #fea44c, #ff8c42);
-    box-shadow: 0 4px 20px rgba(254, 164, 76, 0.4);
-    text-shadow: 0 2px 5px rgba(86, 55, 25, 0.3);
+    background: transparent;
+    border: 2px solid rgba(254, 164, 76, 0.8);
+    backdrop-filter: blur(10px);
 }
 
 nav .buttons .register:hover{
-    background: linear-gradient(135deg, #ff8c42, #fea44c);
+    background: linear-gradient(135deg, #fea44c, #ff8c42);
     transform: translateY(-2px);
     box-shadow: 0 6px 25px rgba(254, 164, 76, 0.6);
+    border-color: transparent;
 }
 
 header{
